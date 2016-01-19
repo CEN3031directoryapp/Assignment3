@@ -36,14 +36,50 @@ var testListing = new Element({
   name: 'AtestAtestA'
 });
 
-console.log(testListing);
+// console.log(testListing);
 
-//for(element in Listing)
-// {
-  // console.log(element);
-//   // var toInsert= new Element{
-//   //   code: element.code
-//   // }
+var JSONListings = require('./listings.json');
+
+// console.log(JSONListings)
+
+for(var entry in JSONListings.entries)
+ {
+    var val = JSONListings.entries[entry];
+
+    var lat = "undefined";
+    var long = "undefined";
+
+    var addr = "undefined";
+
+    if(!(val.coordinates === null || val.coordinates === undefined))
+    {
+      lat = val.coordinates.latitude;
+      long = val.coordinates.longitude;
+    }
+
+    if(!(val.address === null || val.address === undefined))
+    {
+      addr = val.address;
+    }
+
+    var toInsert= new Element({
+      code: val.code,
+      name: val.name,
+      coordinates:{
+        latitude: lat,
+        longitude: long
+      },
+
+      address: addr
+    });
+
+    toInsert.save(function(err, toInsert){
+      if(err){
+
+      }
+    });
+    console.log(toInsert);
+
  }
 
 
