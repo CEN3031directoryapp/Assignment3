@@ -28,7 +28,17 @@ mongoose.connect(db, function(err){
   and then save it to your Mongo database
  */
 
+var Element = mongoose.model('element', Listing)
 
+console.log(Element);
+
+// for(element in Listing)
+// {
+//   console.log(element);
+//   // var toInsert= new Element{
+//   //   code: element.code
+//   // }
+// }
 
 
 
