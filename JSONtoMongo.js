@@ -10,11 +10,20 @@ var fs = require('fs'),
     config = require('./config');
 
 /* Connect to your database */
+var db = 'mongodb://localhost/listings';
+mongoose.connect(db, function(err, res)){
+  if (err){
+    console.log('ERROR: Unable to connect to ' + db + ". " + err);
+  } else{
+    console.log('SUCCESS: Connected to ' + db);
+  }
+}
 
 /* 
   Instantiate a mongoose model for each listing object in the JSON file, 
   and then save it to your Mongo database 
  */
+
 
 
 /* 
