@@ -14,6 +14,7 @@ var fs = require('fs'),
 var db = config.db.uri;
 console.log(db);
 
+
 mongoose.connect(db, function(err){
   if (err){
     console.log('ERROR: Unable to connect to ' + db + ". " + err);
