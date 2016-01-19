@@ -1,5 +1,5 @@
 /* Import mongoose and define any variables needed to create the schema */
-var mongoose = require('mongoose'), 
+var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 /* Create your schema */
@@ -11,7 +11,7 @@ var listingSchema = new Schema({
       latitude: String,
       longtitude: String
   },
-  address: String,  
+  address: String,
   created_at: Date,
   updated_at: Date
 });
@@ -27,9 +27,9 @@ var listingSchema = new Schema({
 listingSchema.pre('save', function(next) {
   /* your code here */
   currentDate = new Date();
-  this.updated_at = now;
+  this.updated_at = currentDate;
   if(!this.created_at){
-    this.created_at = now;
+    this.created_at = currentDate;
   }
   next();
 });
