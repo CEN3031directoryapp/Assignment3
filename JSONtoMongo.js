@@ -31,13 +31,6 @@ mongoose.connect(db, function(err){
 
 var Element = mongoose.model('Elements', listingSchema);
 
-var testListing = new Element({
-  code: 'AAA',
-  name: 'AtestAtestA'
-});
-
-// console.log(testListing);
-
 var JSONListings = require('./listings.json');
 
 // console.log(JSONListings)
@@ -73,13 +66,15 @@ for(var entry in JSONListings.entries)
       address: addr
     });
 
-    toInsert.save(function(err, toInsert){
+    toInsert.save(function(err){
       if(err){
-
+        console.log(err);
       }
+      console.log('saved!');
     });
-    console.log(toInsert);
 
+    //commented for debug
+    // console.log(toInsert);
  }
 
 
