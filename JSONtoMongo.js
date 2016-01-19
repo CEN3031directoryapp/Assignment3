@@ -7,7 +7,8 @@ var fs = require('fs'),
     mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     Listing = require('./ListingSchema.js'),
-    config = require('./config');
+    config = require('./config'),
+    listingSchema = mongoose.model('Listing').schema;
 
 /* Connect to your database */
 // var db = 'mongodb://localhost/listings';
@@ -28,17 +29,22 @@ mongoose.connect(db, function(err){
   and then save it to your Mongo database
  */
 
-var Element = mongoose.model('element', Listing)
+var Element = mongoose.model('Elements', listingSchema);
 
-console.log(Element);
+var testListing = new Element({
+  code: 'AAA',
+  name: 'AtestAtestA'
+});
 
-// for(element in Listing)
+console.log(testListing);
+
+//for(element in Listing)
 // {
-//   console.log(element);
+  // console.log(element);
 //   // var toInsert= new Element{
 //   //   code: element.code
 //   // }
-// }
+ }
 
 
 
