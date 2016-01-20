@@ -11,7 +11,6 @@ var fs = require('fs'),
     listingSchema = mongoose.model('Listing').schema;
 
 /* Connect to your database */
-// var db = 'mongodb://localhost/listings';
 var db = config.db.uri;
 console.log(db);
 
@@ -32,8 +31,6 @@ mongoose.connect(db, function(err){
 var Element = mongoose.model('Elements', listingSchema);
 
 var JSONListings = require('./listings.json');
-
-// console.log(JSONListings)
 
 for(var entry in JSONListings.entries)
  {
@@ -73,8 +70,6 @@ for(var entry in JSONListings.entries)
       console.log('saved!');
     });
 
-    //commented for debug
-    // console.log(toInsert);
  }
 
 

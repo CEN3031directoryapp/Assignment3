@@ -17,12 +17,6 @@ var listingSchema = new Schema({
 });
 
 
-/*// create a schema
-
-
-
-
-
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 listingSchema.pre('save', function(next) {
   /* your code here */
