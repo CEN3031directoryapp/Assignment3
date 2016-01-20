@@ -36,10 +36,10 @@ for(var entry in JSONListings.entries)
  {
     var val = JSONListings.entries[entry];
 
-    var lat = "undefined";
-    var long = "undefined";
+    var lat = '0';
+    var long = '0';
 
-    var addr = "undefined";
+    var addr = 'none';
 
     if(!(val.coordinates === null || val.coordinates === undefined))
     {
